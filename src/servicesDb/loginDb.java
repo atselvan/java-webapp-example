@@ -21,7 +21,7 @@ public class loginDb {
 		try {
 			connection = DriverManager.getConnection(dbConnection,dbUser,dbPassword);
 		} catch (SQLException e) {
-			System.out.println("Sql!");
+			System.out.println("Sql exception in getDbConnection");
 			e.printStackTrace();
 		}
 		
@@ -54,7 +54,7 @@ public class loginDb {
 			System.out.println("Record is inserted into USER table!");
 			
 		} catch (SQLException e) {
-			System.out.println("Sql!");
+			System.out.println("Sql exception in insertLoginDetails");
 			e.printStackTrace();
 		}
 		

@@ -1,8 +1,8 @@
-package servicesDb;
+package com.ID.services;
 
 import java.sql.*;
 
-public class loginDb {
+public class userService {
 	
 	public String dbDriver = "com.mysql.jdbc.Driver";
 	public String dbConnection = "jdbc:mysql://localhost:3306/id";
@@ -35,13 +35,13 @@ public class loginDb {
 		
 	}
 	
-	public void insertLoginDetails(String username,String password){
+	public void userPersist(String firstName, String lastName, String emailId,String password){
 		
-		String loginQuery = "insert into user(username,password)"
-						+	" values('"	+ username + "','" 
+		String sqlQuery = "insert into user(FirstName,LastName,EmailId,password)"
+						+	" values('" + firstName + "','" + lastName + "','"	+ emailId + "','" 
 						+ password+ "');";
 		
-		System.out.println(loginQuery);
+		System.out.println(sqlQuery);
 		
 		Connection connection = null;
 		Statement statement = null;
@@ -49,7 +49,7 @@ public class loginDb {
 		try {
 			connection=	getDbConnection();
 			statement=connection.createStatement();
-			statement.executeUpdate(loginQuery);
+			statement.executeUpdate(sqlQuery);
 			
 			System.out.println("Record is inserted into USER table!");
 			

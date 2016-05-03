@@ -1,12 +1,10 @@
-package com.ID.business;
+package main.java.com.dreamcrafters.ID.business;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.ID.services.userService;
-
+import main.java.com.dreamcrafters.ID.services.*;
 
 @SuppressWarnings("serial")
 @WebServlet("/register")

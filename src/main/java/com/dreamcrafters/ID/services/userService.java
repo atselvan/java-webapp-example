@@ -57,9 +57,30 @@ public class userService {
 			System.out.println("Sql exception in insertLoginDetails");
 			e.printStackTrace();
 		}
+	}
+	
+	public String findUser(String emailId){
+		String sqlQuery = "select * from user where EmailId = '"+ emailId +"';";
 		
+		System.out.println(sqlQuery);
 		
+		Connection connection = null;
+		Statement statement = null;
+		String name=null;
+		try {
+			connection=getDbConnection();
+			statement=connection.createStatement();
+			
+			ResultSet result=statement.executeQuery(sqlQuery);
+			while (result.next()) {
+				name = result.getString(1);
+				}
+		} catch (SQLException e) {
+			System.out.println("Sql exception in insertLoginDetails");
+			e.printStackTrace();
+		}
+		
+		return name;
 		
 	}
-
 }
